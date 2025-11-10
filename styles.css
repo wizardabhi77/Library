@@ -1,0 +1,21 @@
+body {
+    margin : 0;
+}
+
+.library {
+    border: 5px solid brown;
+    background-color: antiquewhite;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    border: 2px dotted blueviolet;
+    background-color: aquamarine;
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+}
