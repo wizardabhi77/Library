@@ -11,8 +11,8 @@ body {
 .library {
     border: 5px solid brown;
     background-color: antiquewhite;
-    height: 500px;
-    width: 500px;
+    height: 1000px;
+    width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
