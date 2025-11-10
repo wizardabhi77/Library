@@ -1,11 +1,18 @@
 body {
     margin : 0;
+    display: flex;
+    height: 100vh;
+    border: 5px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .library {
     border: 5px solid brown;
     background-color: antiquewhite;
-    height: 1000px;
+    height: 500px;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;

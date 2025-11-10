@@ -1,5 +1,9 @@
 const myLibrary = [];
 const divLibrary = document.querySelector('.library');
+const newButton = document.querySelector('.newButton');
+const dialog = document.querySelector("dialog");
+
+newButton.addEventListener('click', addBookToLibrary);
 
 function Book(title,author,pages,read) {
     this.id = crypto.randomUUID();
@@ -12,7 +16,8 @@ function Book(title,author,pages,read) {
     }
 }
 
-function addBookToLibrary(title,author,pages,read) {
+function addBookToLibrary() {
+    dialog.showModal();
     let book = new Book(title,author,pages,read);
     myLibrary.push(book);
 }
@@ -25,7 +30,6 @@ function displayLibrary () {
         divLibrary.appendChild(card);
     })
 }
-addBookToLibrary('WOK','Brandon',1200,true);
-addBookToLibrary('WOR','Brandon',1500,true);
+
 
 displayLibrary();
