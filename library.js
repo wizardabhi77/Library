@@ -12,32 +12,37 @@ submitButton.addEventListener('click', addBookToLibrary);
 
 
 
-function Book(title,author,pages,read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function(){
-        return `Title:${this.title}<br> Author:${this.author}<br> Number Of Pages:${this.pages}<br>`;
-    }
-}
-
-Book.prototype.setReadStatus = function () {
+class Book {
     
-    console.log(this.id);
-    let card = document.getElementById(this.id);
+    constructor(title,author,pages,read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.info = function(){
+            return `Title:${this.title}<br> Author:${this.author}<br> Number Of Pages:${this.pages}<br>`;
+        }
+    }   
 
-    if(this.read === true){
-        this.read = false;
+    setReadStatus = function () {
+    
+        console.log(this.id);
+        let card = document.getElementById(this.id);
+
+        if(this.read === true){
+            this.read = false;
+            card.querySelector('p').textContent = `Have you read?: ${this.read}`;
+            return null;
+        }
+        
+        this.read = true;
+
         card.querySelector('p').textContent = `Have you read?: ${this.read}`;
-        return null;
     }
-    
-    this.read = true;
-
-    card.querySelector('p').textContent = `Have you read?: ${this.read}`;
 }
+
+
 
 function addBookToLibrary(e) {
     e.preventDefault();
