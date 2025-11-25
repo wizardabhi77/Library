@@ -6,6 +6,7 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const submitButton = document.querySelector('.submitButton');
+const errorDiv = document.querySelector('.error'); 
 
 newButton.addEventListener('click', () => dialog.showModal());
 submitButton.addEventListener('click', addBookToLibrary);
@@ -47,7 +48,47 @@ class Book {
 function addBookToLibrary(e) {
     e.preventDefault();
 
+
+
+    if(titleInput.validity.valueMissing)
+    {
+        titleInput.style.backgroundColor = 'red';
+        errorDiv.innerHTML = 'TITLE IS REQUIRED';
+
+        return null;
+    }
+    else {
+         errorDiv.innerHTML = '';
+         titleInput.style.backgroundColor = 'white';
+    }
+    if(authorInput.validity.valueMissing)
+    {
+        authorInput.style.backgroundColor = 'red';
+        errorDiv.innerHTML = 'AUTHOR IS REQUIRED';
+        return null;
+    }
+    else {
+         errorDiv.innerHTML = '';
+         authorInput.style.backgroundColor = 'white';
+    }
+    if(pagesInput.validity.valueMissing)
+    {
+        pagesInput.style.backgroundColor = 'red';
+        errorDiv.innerHTML = 'PAGES IS REQUIRED';
+        return null;
+    }
+    else {
+        errorDiv.innerHTML = '';
+        pagesInput.style.backgroundColor = 'white';
+    }
+
+    errorDiv.innerHTML = '';
+    
+    
+    
+
     let title = titleInput.value;
+
     let author = authorInput.value;
     let pages = pagesInput.value;
 
